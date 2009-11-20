@@ -3,6 +3,7 @@ require 'sinatra'
 
 $index = 1
 $known = {}
+$rev_known = {}
 
 get '/' do
   if big = params[:t]
@@ -17,9 +18,16 @@ get '/:tiny' do |tiny|
 end
 
 def generate(url)
-  key = encode($index)
-  $known[key] = url
-  $index += 1
+  already = $rev_known[url]
+  if already
+    already
+  else
+    key = encode($index)
+    $known[key] = url
+    $rev_known[url] = key
+    $index += 1
+    key
+  end
 end
 
 def restore(index)
