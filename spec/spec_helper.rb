@@ -10,6 +10,14 @@ require "spec" # Satisfies Autotest and anyone else not using the Rake tasks
 #DataMapper.setup(:default, 'sqlite3::memory:')
 #DataMapper.auto_migrate!
 
-require 'timecop'
-require 'chronic'
+#require 'timecop'
+#require 'chronic'
+
+require 'hi'
+require 'test/unit'
+require 'rack/test'
+require 'rack/utils'
+require 'sinatra'
+
+
 
