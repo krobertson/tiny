@@ -19,6 +19,7 @@ end
 def generate(url)
   key = encode($index)
   $known[key] = url
+  $index += 1
 end
 
 def restore(index)
